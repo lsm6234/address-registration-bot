@@ -1,0 +1,4 @@
+exchange,coin,network,address,memo_or_tag,alias,owner_name_kr,status
+Bybit,AVAIL,Avail DA,5DQEFmTg1Y9zByDUTogEwr4dnUVXZavYy3pp8BiNkpExample,,바이비트 avail,상이,ready
+Upbit,XRP,XRP,raQwExampleXWA,2851973799,업비트 리플,상이,ready
+Binance,USDT,Tron,TE5cExampleY9e,,바이낸스 테더,상이,draft

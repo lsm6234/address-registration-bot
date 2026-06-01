@@ -1,0 +1,29 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+*.egg-info/
+
+# Operator-local artifacts. Do not commit exchange/session/audit data.
+reports/
+screenshots/
+traces/
+.localdata/
+.omx/
+chrome-profile/
+*.trace.zip
+
+# Local config/input files may contain addresses or names.
+.env
+.env.*
+configs/*.csv
+configs/*.xlsx
+!configs/sample_addresses.csv
+!configs/network_aliases.sample.csv
+
+.venv-win/
+
+.win_site/

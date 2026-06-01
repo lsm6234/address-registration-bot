@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "address-registration-bot"
+version = "0.1.0"
+description = "Bithumb address-book registration assistant with CSV/XLSX validation and Playwright CDP automation"
+requires-python = ">=3.11"
+dependencies = [
+  "playwright>=1.45",
+  "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+]
+
+[project.scripts]
+address-bot = "address_bot.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
