@@ -14,13 +14,13 @@ def alias() -> NetworkAlias:
         target_network="Ethereum",
         canonical_network_id="ethereum",
         address_family="evm",
-        source_contract_address="0xdac17f958d2ee523a2206206994597c13d831ec7",
-        target_contract_address="0xdac17f958d2ee523a2206206994597c13d831ec7",
+        source_contract_address="0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        target_contract_address="0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
         review_status="approved",
     )
 
 
-def candidate(address: str = "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe") -> AddressCandidate:
+def candidate(address: str = "0xaAaAaAaaAaAaAaaAaAAAAAAAAaaaAaAaAaaAaaAa") -> AddressCandidate:
     return AddressCandidate(
         source_exchange="binance",
         target_exchange="bithumb",

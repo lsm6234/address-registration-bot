@@ -128,8 +128,8 @@ fixture 예시:
     "exchange": "binance",
     "coin": "USDT",
     "network": "ETH",
-    "address": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae",
-    "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    "address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "contract_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
   }
 ]
 ```

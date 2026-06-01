@@ -1,5 +1,5 @@
 source_exchange,coin,source_network,target_exchange,target_network,canonical_network_id,address_family,source_contract_address,target_contract_address,memo_required,review_status,note
 binance,USDT,TRX,bithumb,TRON,tron,trc20,,,false,approved,TRON/TRC20 USDT mapping example; token contract unavailable in sample
-binance,USDT,ETH,bithumb,Ethereum,ethereum,evm,0xdac17f958d2ee523a2206206994597c13d831ec7,0xdac17f958d2ee523a2206206994597c13d831ec7,false,approved,USDT ERC20 contract match example
+binance,USDT,ETH,bithumb,Ethereum,ethereum,evm,0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,false,approved,USDT ERC20 contract match example
 bybit,XRP,XRP,bithumb,XRP,xrp,xrp,,,true,approved,XRP requires destination tag/memo
 okx,USDT,Arbitrum One,bithumb,Arbitrum,arbitrum,evm,,,false,needs_review,Example left unapproved until UI label and contract are reviewed

@@ -119,7 +119,7 @@ public static class AddressBotTcpRelay
     Write-Host ""
     Write-Host "WSL CDP relay is running. Keep this window open while calibrating."
     Write-Host "Relay:  http://$ListenAddress`:$ListenPort  ->  http://$TargetAddress`:$TargetPort"
-    Write-Host "Run 빗썸-2-캘리브레이션검사.cmd in another window."
+    Write-Host "Run bithumb-2-inspect-calibration.cmd in another window."
     Write-Host "Close this window after calibration is finished."
     [AddressBotTcpRelay]::Start($ListenAddress, $ListenPort, $TargetAddress, $TargetPort)
 }
@@ -128,7 +128,7 @@ public static class AddressBotTcpRelay
 function Get-WslGatewayAddress() {
     $script = "import socket; lines=open('/proc/net/route').read().splitlines()[1:]; print(next(socket.inet_ntoa(bytes.fromhex(x.split()[2])[::-1]) for x in lines if x.split()[1]=='00000000'))"
     try {
-        $result = & wsl.exe -d Ubuntu-24.04 --cd / -- python3 -c $script 2>$null
+        $result = & wsl.exe --cd / -- python3 -c $script 2>$null
         if ($LASTEXITCODE -eq 0 -and -not [string]::IsNullOrWhiteSpace($result)) {
             return ($result | Select-Object -First 1).Trim()
         }

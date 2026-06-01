@@ -13,8 +13,8 @@ def approved_alias(**overrides) -> NetworkAlias:
         "target_network": "Ethereum",
         "canonical_network_id": "ethereum",
         "address_family": "evm",
-        "source_contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-        "target_contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "source_contract_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "target_contract_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
         "memo_required": False,
         "review_status": "approved",
         "note": "",
@@ -29,7 +29,7 @@ def candidate(**overrides) -> AddressCandidate:
         "target_exchange": "bithumb",
         "coin": "USDT",
         "source_network": "ETH",
-        "address": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+        "address": "0xaAaAaAaaAaAaAaaAaAAAAAAAAaaaAaAaAaaAaaAa",
         "alias": "바이낸스 USDT ETH",
         "owner_name_kr": "홍길동",
     }
@@ -72,7 +72,7 @@ def test_missing_required_memo_blocks() -> None:
         target_contract_address="",
         memo_required=True,
     )
-    row = candidate(coin="XRP", source_network="XRP", address="r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59", memo_or_tag="")
+    row = candidate(coin="XRP", source_network="XRP", address="rrrrrrrrrrrrrrrrrrrrrrrrr", memo_or_tag="")
 
     result = verify_candidate(row, alias)
 
@@ -80,7 +80,7 @@ def test_missing_required_memo_blocks() -> None:
 
 
 def test_ready_result_keeps_checksum_warning_for_lowercase_evm() -> None:
-    result = verify_candidate(candidate(address="0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"), approved_alias())
+    result = verify_candidate(candidate(address="0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), approved_alias())
 
     assert result.state is VerificationState.READY
     assert "warn_checksum_unavailable" in result.warnings

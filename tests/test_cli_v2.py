@@ -10,7 +10,7 @@ from address_bot.cli import main
 def write_aliases(path: Path) -> None:
     path.write_text(
         "source_exchange,coin,source_network,target_exchange,target_network,canonical_network_id,address_family,source_contract_address,target_contract_address,memo_required,review_status,note\n"
-        "binance,USDT,ETH,bithumb,Ethereum,ethereum,evm,0xdac17f958d2ee523a2206206994597c13d831ec7,0xdac17f958d2ee523a2206206994597c13d831ec7,false,approved,ok\n",
+        "binance,USDT,ETH,bithumb,Ethereum,ethereum,evm,0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,false,approved,ok\n",
         encoding="utf-8",
     )
 
@@ -24,8 +24,8 @@ def test_collect_and_verify_candidates_exports_ready_csv(tmp_path: Path) -> None
                     "exchange": "binance",
                     "coin": "USDT",
                     "network": "ETH",
-                    "address": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae",
-                    "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                    "address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "contract_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
                 }
             ]
         ),
@@ -51,7 +51,7 @@ def test_run_upbit_without_confirm_refuses_before_browser(tmp_path: Path) -> Non
     input_file = tmp_path / "addresses.csv"
     input_file.write_text(
         "exchange,coin,network,address,memo_or_tag,alias,owner_name_kr,status\n"
-        "Bithumb,USDT,Ethereum,0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae,,alias,홍길동,ready\n",
+        "Bithumb,USDT,Ethereum,0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,,alias,홍길동,ready\n",
         encoding="utf-8",
     )
 
@@ -98,8 +98,8 @@ def test_verify_candidates_onchain_check_adds_unavailable_warning(tmp_path: Path
                     "exchange": "binance",
                     "coin": "USDT",
                     "network": "ETH",
-                    "address": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae",
-                    "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                    "address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "contract_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
                 }
             ]
         ),

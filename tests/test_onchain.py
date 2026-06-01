@@ -27,7 +27,7 @@ def candidate(**overrides) -> AddressCandidate:
         "coin": "USDT",
         "source_network": "ETH",
         "address_family": "evm",
-        "address": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae",
+        "address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     }
     values.update(overrides)
     return AddressCandidate(**values)
@@ -95,7 +95,7 @@ def test_xrp_account_not_found_is_inactive_warning() -> None:
     ])
     verifier = OnchainVerifier(OnchainConfig(xrp_rpc_url="https://xrp.example"), http=http)
 
-    result = verifier.verify(candidate(address_family="xrp", source_network="XRP", coin="XRP", address="r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59"))
+    result = verifier.verify(candidate(address_family="xrp", source_network="XRP", coin="XRP", address="rrrrrrrrrrrrrrrrrrrrrrrrr"))
 
     assert result.checked
     assert not result.active
@@ -108,7 +108,7 @@ def test_tron_non_empty_account_is_active() -> None:
     ])
     verifier = OnchainVerifier(OnchainConfig(tron_api_base_url="https://tron.example"), http=http)
 
-    result = verifier.verify(candidate(address_family="tron", source_network="TRX", address="T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb"))
+    result = verifier.verify(candidate(address_family="tron", source_network="TRX", address="T111111111111111111111111111111111"))
 
     assert result.checked
     assert result.active
