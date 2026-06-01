@@ -95,7 +95,7 @@ def test_visible_value_mismatch_blocks() -> None:
         address="ADDR",
         memo_or_tag="",
         alias="alias",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
 
@@ -117,7 +117,7 @@ def test_visible_value_blank_actual_blocks() -> None:
         address="ADDR",
         memo_or_tag="",
         alias="alias",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
 
@@ -139,7 +139,7 @@ def test_visible_value_partial_actual_blocks() -> None:
         address="ADDR123456",
         memo_or_tag="",
         alias="alias",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
 
@@ -161,7 +161,7 @@ def test_visible_value_memo_tag_mismatch_blocks() -> None:
         address="rExample",
         memo_or_tag="12345",
         alias="업비트 리플",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
 
@@ -190,7 +190,7 @@ def test_visible_value_accepts_bithumb_calibrated_display_text() -> None:
         address="0x1111111111111111111111111111111111111111",
         memo_or_tag="",
         alias="바이낸스 ETH",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
 
@@ -217,7 +217,7 @@ def test_visible_value_coin_symbol_must_be_boundary_match() -> None:
         address="0x1111111111111111111111111111111111111111",
         memo_or_tag="",
         alias="바이낸스 ETH",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
 
@@ -317,7 +317,7 @@ def test_ui_read_visible_values_does_not_synthesize_from_body_text() -> None:
         address="ADDR",
         memo_or_tag="",
         alias="alias",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
     page = _FakePage(
@@ -344,7 +344,7 @@ def test_ui_read_visible_values_reads_label_adjacent_inputs() -> None:
         address="ADDR",
         memo_or_tag="12345",
         alias="alias",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
     page = _FakePage(
@@ -382,7 +382,7 @@ def test_ui_read_visible_values_reads_bithumb_destination_tag_placeholder() -> N
         address="rExample",
         memo_or_tag="337404601",
         alias="binance XRP XRP",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
     page = _FakePage(

@@ -11,7 +11,7 @@ def test_load_csv_rows(tmp_path: Path) -> None:
     path = tmp_path / "addresses.csv"
     path.write_text(
         "exchange,coin,network,address,memo_or_tag,alias,owner_name_kr,status\n"
-        "Bybit,AVAIL,Avail DA,ADDR,,alias,상이,ready\n",
+        "Bybit,AVAIL,Avail DA,ADDR,,alias,홍길동,ready\n",
         encoding="utf-8",
     )
 

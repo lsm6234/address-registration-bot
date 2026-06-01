@@ -31,7 +31,7 @@ def candidate(**overrides) -> AddressCandidate:
         "source_network": "ETH",
         "address": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
         "alias": "바이낸스 USDT ETH",
-        "owner_name_kr": "상이",
+        "owner_name_kr": "홍길동",
     }
     values.update(overrides)
     return AddressCandidate(**values)

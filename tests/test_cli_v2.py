@@ -37,7 +37,7 @@ def test_collect_and_verify_candidates_exports_ready_csv(tmp_path: Path) -> None
     ready = tmp_path / "ready.csv"
     write_aliases(aliases)
 
-    assert main(["collect-addresses", "--fixture-json", str(fixture), "--target", "bithumb", "--owner-name-kr", "상이", "--out", str(candidates)]) == 0
+    assert main(["collect-addresses", "--fixture-json", str(fixture), "--target", "bithumb", "--owner-name-kr", "홍길동", "--out", str(candidates)]) == 0
     assert main(["verify-candidates", "--input", str(candidates), "--network-aliases", str(aliases), "--out", str(verified), "--ready-output", str(ready)]) == 0
 
     with ready.open("r", encoding="utf-8-sig", newline="") as handle:
@@ -51,7 +51,7 @@ def test_run_upbit_without_confirm_refuses_before_browser(tmp_path: Path) -> Non
     input_file = tmp_path / "addresses.csv"
     input_file.write_text(
         "exchange,coin,network,address,memo_or_tag,alias,owner_name_kr,status\n"
-        "Bithumb,USDT,Ethereum,0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae,,alias,상이,ready\n",
+        "Bithumb,USDT,Ethereum,0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae,,alias,홍길동,ready\n",
         encoding="utf-8",
     )
 
@@ -110,7 +110,7 @@ def test_verify_candidates_onchain_check_adds_unavailable_warning(tmp_path: Path
     verified = tmp_path / "verified.csv"
     write_aliases(aliases)
 
-    assert main(["collect-addresses", "--fixture-json", str(fixture), "--target", "bithumb", "--owner-name-kr", "상이", "--out", str(candidates)]) == 0
+    assert main(["collect-addresses", "--fixture-json", str(fixture), "--target", "bithumb", "--owner-name-kr", "홍길동", "--out", str(candidates)]) == 0
     assert main(["verify-candidates", "--input", str(candidates), "--network-aliases", str(aliases), "--out", str(verified), "--onchain-check"]) == 0
 
     with verified.open("r", encoding="utf-8-sig", newline="") as handle:

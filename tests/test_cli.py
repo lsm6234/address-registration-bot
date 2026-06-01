@@ -10,7 +10,7 @@ def test_run_without_confirm_refuses_before_browser(tmp_path: Path) -> None:
     input_file = tmp_path / "addresses.csv"
     input_file.write_text(
         "exchange,coin,network,address,memo_or_tag,alias,owner_name_kr,status\n"
-        "Bybit,AVAIL,Avail DA,ADDR,,alias,상이,ready\n",
+        "Bybit,AVAIL,Avail DA,ADDR,,alias,홍길동,ready\n",
         encoding="utf-8",
     )
 

@@ -13,7 +13,7 @@ def row(**overrides) -> AddressRow:
         "address": "5DQEFmTg1Y9zByDUTogEwr4dnUVXZavYy3pp8BiNkpExample",
         "memo_or_tag": "",
         "alias": "바이비트 avail",
-        "owner_name_kr": "상이",
+        "owner_name_kr": "홍길동",
         "status": "ready",
     }
     values.update(overrides)

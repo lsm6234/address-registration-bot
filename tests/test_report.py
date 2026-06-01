@@ -17,7 +17,7 @@ def test_reports_write_jsonl_and_masked_summary(tmp_path: Path) -> None:
         address="1234567890ABCDEFG",
         memo_or_tag="",
         alias="alias",
-        owner_name_kr="상이",
+        owner_name_kr="홍길동",
         status="ready",
     )
 
@@ -29,4 +29,4 @@ def test_reports_write_jsonl_and_masked_summary(tmp_path: Path) -> None:
     with Path(summary["latest_csv_path"]).open("r", encoding="utf-8-sig", newline="") as handle:
         [record] = list(csv.DictReader(handle))
     assert record["address"] == "123456...DEFG"
-    assert record["owner_name_kr"] == "상*"
+    assert record["owner_name_kr"] == "홍**"
