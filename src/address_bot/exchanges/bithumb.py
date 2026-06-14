@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .base import DepositAddressRecord, ExchangeClient
+from .base import DepositAddressRecord, ExchangeApiError, ExchangeClient
 from .jwt_auth import hs256_jwt, jwt_payload
 
 
@@ -16,7 +16,7 @@ class BithumbClient(ExchangeClient):
 
     def _signed_get(self, path: str, params: dict[str, object] | None = None):
         if not self.credentials.has_key_secret:
-            raise RuntimeError("BITHUMB_API_KEY and BITHUMB_API_SECRET are required")
+            raise ExchangeApiError("BITHUMB_API_KEY and BITHUMB_API_SECRET are required")
         query = self.urlencode(params or {})
         token = hs256_jwt(jwt_payload(self.credentials.api_key, query, include_timestamp=True), self.credentials.api_secret)
         url = f"{self.base_url}{path}" + (f"?{query}" if query else "")

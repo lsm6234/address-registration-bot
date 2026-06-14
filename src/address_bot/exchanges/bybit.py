@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import hmac
 
-from .base import DepositAddressRecord, ExchangeClient, NetworkMetadata
+from .base import DepositAddressRecord, ExchangeApiError, ExchangeClient, NetworkMetadata
 
 
 class BybitClient(ExchangeClient):
@@ -13,7 +13,7 @@ class BybitClient(ExchangeClient):
 
     def _signed_get(self, path: str, params: dict[str, object] | None = None):
         if not self.credentials.has_key_secret:
-            raise RuntimeError("BYBIT_API_KEY and BYBIT_API_SECRET are required")
+            raise ExchangeApiError("BYBIT_API_KEY and BYBIT_API_SECRET are required")
         query = self.urlencode(params or {})
         timestamp = self.timestamp_ms()
         payload = timestamp + self.credentials.api_key + self.recv_window + query

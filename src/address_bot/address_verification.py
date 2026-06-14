@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 
 from .network_aliases import NetworkAlias, normalize_contract
+from .validation import DEFAULT_MEMO_REQUIRED_COINS
 
 
 BASE58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
@@ -19,7 +20,6 @@ NATIVE_CONTRACTLESS_FAMILIES = {"btc", "bitcoin", "xrp", "ripple", "sol", "solan
 NATIVE_ASSET_NETWORKS = {
     "ETH": {"eth", "ethereum"},
 }
-CONSERVATIVE_MEMO_REQUIRED_COINS = {"XRP", "XLM", "EOS", "ATOM", "HBAR", "TON", "LUNA", "USTC"}
 
 
 class VerificationState(str, Enum):
@@ -156,7 +156,7 @@ def validate_address_format(address: str, family: str) -> bool:
 def memo_required(candidate: AddressCandidate, alias: NetworkAlias | None = None) -> bool:
     if alias and alias.memo_required:
         return True
-    return candidate.normalized_coin in CONSERVATIVE_MEMO_REQUIRED_COINS
+    return candidate.normalized_coin in DEFAULT_MEMO_REQUIRED_COINS
 
 
 def check_warnings(candidate: AddressCandidate) -> list[str]:

@@ -5,7 +5,7 @@ import hashlib
 import hmac
 from datetime import datetime, timezone
 
-from .base import DepositAddressRecord, ExchangeClient, NetworkMetadata, parse_api_bool
+from .base import DepositAddressRecord, ExchangeApiError, ExchangeClient, NetworkMetadata, parse_api_bool
 
 
 class OkxClient(ExchangeClient):
@@ -18,7 +18,7 @@ class OkxClient(ExchangeClient):
 
     def _signed_get(self, path: str, params: dict[str, object] | None = None):
         if not self.credentials.is_complete_for_okx:
-            raise RuntimeError("OKX_API_KEY, OKX_API_SECRET and OKX_PASSPHRASE are required")
+            raise ExchangeApiError("OKX_API_KEY, OKX_API_SECRET and OKX_PASSPHRASE are required")
         query = self.urlencode(params or {})
         request_path = path + (f"?{query}" if query else "")
         timestamp = self.iso_timestamp()

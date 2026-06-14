@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import hmac
 
-from .base import DepositAddressRecord, ExchangeClient, NetworkMetadata, parse_api_bool
+from .base import DepositAddressRecord, ExchangeApiError, ExchangeClient, NetworkMetadata, parse_api_bool
 from ..secrets import ApiCredentials
 
 
@@ -13,7 +13,7 @@ class BinanceClient(ExchangeClient):
 
     def _signed_get(self, path: str, params: dict[str, object] | None = None):
         if not self.credentials.has_key_secret:
-            raise RuntimeError("BINANCE_API_KEY and BINANCE_API_SECRET are required")
+            raise ExchangeApiError("BINANCE_API_KEY and BINANCE_API_SECRET are required")
         payload = dict(params or {})
         payload["timestamp"] = self.timestamp_ms()
         query = self.urlencode(payload)

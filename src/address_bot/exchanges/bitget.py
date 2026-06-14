@@ -4,7 +4,7 @@ import base64
 import hashlib
 import hmac
 
-from .base import DepositAddressRecord, ExchangeClient, NetworkMetadata, parse_api_bool
+from .base import DepositAddressRecord, ExchangeApiError, ExchangeClient, NetworkMetadata, parse_api_bool
 
 
 class BitgetClient(ExchangeClient):
@@ -16,7 +16,7 @@ class BitgetClient(ExchangeClient):
 
     def _signed_get(self, path: str, params: dict[str, object] | None = None):
         if not (self.credentials.api_key and self.credentials.api_secret and self.credentials.passphrase):
-            raise RuntimeError("BITGET_API_KEY, BITGET_API_SECRET and BITGET_PASSPHRASE are required")
+            raise ExchangeApiError("BITGET_API_KEY, BITGET_API_SECRET and BITGET_PASSPHRASE are required")
         query = self.urlencode(params or {})
         request_path = path + (f"?{query}" if query else "")
         timestamp = self.timestamp_ms()

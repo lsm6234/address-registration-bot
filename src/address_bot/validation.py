@@ -5,7 +5,10 @@ from collections.abc import Iterable
 from .models import AddressRow, Outcome, RowResult
 
 
-DEFAULT_MEMO_REQUIRED_COINS = {"XRP", "XLM", "EOS", "ATOM", "HBAR"}
+# Coins where deposit addresses are shared across users; a missing memo/tag
+# misroutes funds. Keep this list in sync with address_verification's
+# memo_required() hard-stop check.
+DEFAULT_MEMO_REQUIRED_COINS = {"XRP", "XLM", "EOS", "ATOM", "HBAR", "TON", "LUNA", "USTC"}
 
 
 def validate_rows(
